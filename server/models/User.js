@@ -2,11 +2,12 @@
 const mongoose = require('mongoose');
 
 /* Criação do Schema do usuário, que guardará suas informações pessoais;
-Uma vez criado o modelo das operações, o usuário guardará também os id's das operações por ele criadas */
+Os usuários também guardam os id's das operações por eles criadas */
 const UserSchema = new mongoose.Schema({
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
+    savedOperations: [{ type: mongoose.Schema.Types.ObjectId, ref: "operations" }],
 });
 
 const User = mongoose.model("users", UserSchema);

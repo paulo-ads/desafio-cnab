@@ -4,7 +4,9 @@ require('dotenv').config(); //No caso especial desse projeto, o arquivo .env fic
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const { authRouter } = require('./routes/auth.js'); //Router para acesso às endpoints de autorização e autenticação
+const { authRouter } = require('./routes/auth.js'); //Router para acesso aos endpoints de autorização e autenticação
+const { operationsRouter } = require('./routes/operations.js'); //Router para acesso aos endpoints de operações CNAB
+
 
 const app = express();
 
@@ -13,6 +15,7 @@ const porta = process.env.PORTA_API || 3001; //Servidor abrirá na porta referid
 app.use(cors());
 app.use(express.json());
 app.use("", authRouter);
+app.use("/operations", operationsRouter);
 
 /*Rota Pública voltada a testes de conexão*/
 app.get('/' , (req, res) => {

@@ -1,0 +1,15 @@
+.app-div{
+  background-color: rgba(36, 113, 255, 0.096);
+}
+
+.header{
+  font-family:'Verdana', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.5em;
+  color: rgb(0, 150, 219);
+  font-weight: bold;
+  width: 100%;
+}
+.btn-danger{
+  margin-left: 10%;
+}
+

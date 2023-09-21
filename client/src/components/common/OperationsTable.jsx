@@ -1,6 +1,8 @@
 // Componente que renderiza as tabelas com as operações salvas pelo usuário e guarda a lógica delas
 import React, { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
+import "../../assets/css/main.css";
+
 
 import axios from 'axios';
 
@@ -58,45 +60,47 @@ function OperationsTable() {
     };
 
     return (
-        <div>
+        <div className='operationsTable'>
             <br />
             {operations.length > 0 ? ( //Se houver operações salvas por esse usuário, a tabela é renderizada
             <div>
-            <br/><h3>Operações Salvas:</h3>
-            <button onClick={updateFetch}>Atualizar</button>
-            <table className="table">
+            <br/><h4 className='title'>Operações Salvas:</h4>
+            <button className='btn btn-primary' onClick={updateFetch}>Atualizar</button>
+            <div className='table-responsive mt-2'>
+            <table className="table table-sm">
                 <thead>
                 <tr>
-                    <th scope="col">Tipo de Operação</th>
-                    <th scope="col">Data de Operação</th>
-                    <th scope="col">Valor da Operação</th>
-                    <th scope="col">CPF</th>
-                    <th scope="col">Cartão</th>
-                    <th scope="col">Nome do Dono</th>
-                    <th scope="col">Nome da Loja</th>
-                    <th scope="col">Saldo da Loja</th>
+                    <th className='bg-primary white-font' scope="col">Tipo de Operação</th>
+                    <th className='bg-primary white-font' scope="col">Data de Operação</th>
+                    <th className='bg-primary white-font' scope="col">Valor da Operação</th>
+                    <th className='bg-primary white-font' scope="col">CPF</th>
+                    <th className='bg-primary white-font' scope="col">Cartão</th>
+                    <th className='bg-primary white-font' scope="col">Nome do Dono</th>
+                    <th className='bg-primary white-font' scope="col">Nome da Loja</th>
+                    <th className='bg-success white-font' scope="col">Saldo da Loja</th>
                 </tr>
                 </thead>
                 <tbody>
                 {operations.slice().reverse().map((item) => ( //É realizada uma iteração por cada operação, onde as operações mais novas tornam-se linhas da tabela
                 <tr key={item._id}>
-                    <td>{item.tipo}</td>
-                    <td>{item.data}</td>
-                    <td>{item.valor}R$</td>
-                    <td>{item.cpf}</td>
-                    <td>{item.cartao}</td>
-                    <td>{item.nomeDono}</td>
-                    <td>{item.nomeLoja}</td>
-                    <td>{(/*Saldo total é arrendondado*/ saldoTotals[item.nomeLoja] || 0).toFixed(2)}R$</td>
+                    <td className='table-primary'>{item.tipo}</td>
+                    <td className='table-primary'>{item.data}</td>
+                    <td className='table-primary'>{item.valor}R$</td>
+                    <td className='table-primary'>{item.cpf}</td>
+                    <td className='table-primary'>{item.cartao}</td>
+                    <td className='table-primary'>{item.nomeDono}</td>
+                    <td className='table-primary'>{item.nomeLoja}</td>
+                    <td className='bg-success white-font'>{(/*Saldo total é arrendondado*/ saldoTotals[item.nomeLoja] || 0).toFixed(2)}R$</td>
                 </tr>
                 ))}
                 </tbody>
             </table>
             </div>
+            </div>
             ) : ( // Quando não se tem operações salvas, a tabela não é renderizada
             <div>
-            <br/><h1>Você não tem operações salvas.</h1>
-            <button onClick={updateFetch}>Atualizar</button>
+            <br/><h4 className='title'>Você não tem operações salvas.</h4>
+            <button className='btn btn-primary' onClick={updateFetch}>Atualizar</button>
             </div>
             )}
             <br />

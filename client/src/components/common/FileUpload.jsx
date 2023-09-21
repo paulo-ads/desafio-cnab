@@ -7,6 +7,8 @@ import { useCookies } from 'react-cookie';
 function FileUpload() {
     const [file, setFile] = useState(null);
     const [cookies] = useCookies(['access_token']);
+    const [showAlert, setShowAlert] = useState(false);
+
 
 // Função chamada quando o usuário seleciona o arquivo
     const handleFileChange = (e) => {
@@ -31,7 +33,9 @@ function FileUpload() {
         })
             console.log(`O arquivo foi carregado: ${responseUpload.data.filename}`); // O endpoint retorna um objeto com informações do arquivo enviado, incluindo o nome dele
             handleRead(responseUpload.data.filename); // Uma vez que a requisição tenha sido um sucesso e o nome do arquivo foi recuperado, a função de leitura é chamada e o nome do arquivo carregado é passado como argumento
-
+            setTimeout(() => {
+                setShowAlert(true);
+              }, 3000);
         } catch (err) {
             console.error(err);
         }
@@ -136,9 +140,21 @@ function FileUpload() {
 
 
     return (
-        <div>
-            <input type="file" accept=".txt" onChange={handleFileChange} name='file' />
-            <button onClick={handleUpload}>Enviar</button>
+        <div className='mb-3 row'>
+            <h4 className='title'>Carregue aqui seus arquivos txt</h4>
+            <div className='col-3'>
+                <input type="file" accept=".txt" onChange={handleFileChange} name='file' className="form-control" />
+                {showAlert && (
+                <div className="col-12 mt-2">
+                    <div className="alert alert-success" role="alert">
+                     Por favor, clique o botão atualizar para ver suas operações!
+                    </div>
+                </div>
+            )}
+            </div>
+            <div className='col-3'>
+                <button className="btn btn-primary" onClick={handleUpload}>Enviar</button>
+            </div>
         </div>
     );
 }

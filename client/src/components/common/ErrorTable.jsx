@@ -31,37 +31,39 @@ function ErrorTable() {
     }, []);
 
         return (
-            <div>
+            <div className='operationsErrorTable'>
             <br />
             {errorOperations.length > 0 ? ( //Se houver operações erradas salvas por esse usuário, a tabela é renderizada
             <div>
-            <h3>Operações com erro:</h3>
-            <table className="table">
+            <h4 className='title-error'>Operações com erro:</h4>
+            <div className='table-responsive mt-2'>
+            <table className="table table-sm table-dark">
             <thead>
                 <tr>
-                <th scope="col">Tipo de Operação</th>
-                <th scope="col">Data de Operação</th>
-                <th scope="col">Valor da Operação</th>
-                <th scope="col">CPF</th>
-                <th scope="col">Cartão</th>
-                <th scope="col">Nome do Dono</th>
-                <th scope="col">Nome da Loja</th>
+                <th className='bg-danger' scope="col">Tipo de Operação</th>
+                <th className='bg-danger' scope="col">Data de Operação</th>
+                <th className='bg-danger' scope="col">Valor da Operação</th>
+                <th className='bg-danger' scope="col">CPF</th>
+                <th className='bg-danger' scope="col">Cartão</th>
+                <th className='bg-danger' scope="col">Nome do Dono</th>
+                <th className='bg-danger' scope="col">Nome da Loja</th>
                 </tr>
             </thead>
             <tbody>
             {errorOperations.map((item) => ( //É realizada uma iteração por cada operação errada, onde as operações mais novas tornam-se linhas da tabela
                 <tr key={item._id}>
-                <td>{item.tipo}</td>
-                <td>{item.data}</td>
-                <td>{item.valor}R$</td>
-                <td>{item.cpf}</td>
-                <td>{item.cartao}</td>
-                <td>{item.nomeDono}</td>
-                <td>{item.nomeLoja}</td>
+                <td className='table-danger'>{item.tipo}</td>
+                <td className='table-danger'>{item.data}</td>
+                <td className='table-danger'>{item.valor}R$</td>
+                <td className='table-danger'>{item.cpf}</td>
+                <td className='table-danger'>{item.cartao}</td>
+                <td className='table-danger'>{item.nomeDono}</td>
+                <td className='table-danger'>{item.nomeLoja}</td>
                 </tr>
                 ))}
             </tbody>
             </table>
+            </div>
             </div>
             ) : (
             <></>

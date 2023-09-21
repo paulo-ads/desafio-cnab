@@ -1,0 +1,14 @@
+.white-font{
+    color: white !important;
+    font-weight: bold !important;
+}
+.title{
+    color: rgb(0, 119, 255);
+    font-family:'Verdana', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+.title-error{
+    font-family:'Verdana', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    color: rgb(228, 58, 58)
+}

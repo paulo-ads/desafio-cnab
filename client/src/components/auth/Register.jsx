@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import "../../assets/css/home.css";
 
 /*O componente de registro coleta as informações inseridas no form e as envia para o endpoint de registro;*/
 function Register(){
@@ -38,12 +39,12 @@ function Register(){
       }; 
 
     return(
-        <div>
+        <div className='half'>
         <h2>Registro</h2>
         <form onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="name">Nome:</label>
-            <input
+          <div className='mb-3'>
+            <label className='form-label' htmlFor="name">Nome:</label>
+            <input className='form-control'
               type="text"
               id="name"
               name="name"
@@ -52,9 +53,9 @@ function Register(){
               required
             />
           </div>
-          <div>
-            <label htmlFor="email">Email:</label>
-            <input
+          <div className='mb-3'>
+            <label className='form-label' htmlFor="email">Email:</label>
+            <input className='form-control'
               type="email"
               id="email"
               name="email"
@@ -63,9 +64,9 @@ function Register(){
               required
             />
           </div>
-          <div>
-            <label htmlFor="password">Senha:</label>
-            <input
+          <div className='mb-3'>
+            <label className='form-label' htmlFor="password">Senha:</label>
+            <input className='form-control'
               type="password"
               id="password"
               name="password"
@@ -74,9 +75,9 @@ function Register(){
               required
             />
           </div>
-          <div>
-            <label htmlFor="confirmpassword">Confirme a senha:</label>
-            <input
+          <div className='mb-3'>
+            <label className='form-label' htmlFor="confirmpassword">Confirme a senha:</label>
+            <input className='form-control'
               type="password"
               id="confirmpassword"
               name="confirmpassword"
@@ -85,7 +86,7 @@ function Register(){
               required
             />
           </div>
-          <button type="submit">Criar minha conta</button>
+          <button className='btn btn-primary' type="submit">Criar minha conta</button>
         </form>
       </div>
   

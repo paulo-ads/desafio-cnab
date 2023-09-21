@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import app from "./app.css?inline";
+import "./assets/css/app.css";
 import Header from './components/common/Header'
 import { Home } from './pages/home'
 import { Main } from './pages/main'
@@ -11,7 +11,7 @@ A página inicial lidará com o Login e Registro;
 A página principal lidará com as operações CNAB*/
 function App() {
   return (
-    <>
+    <div className='app-div'>
       <Router>
         <Header/>
         <Routes>
@@ -19,7 +19,7 @@ function App() {
           <Route path="/main" element={<Main/>} />
         </Routes>
       </Router>
-    </>
+    </div>
   )
 }
 

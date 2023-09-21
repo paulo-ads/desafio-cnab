@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useCookies } from 'react-cookie' //Será utilizado o react-cookies para averiguar o token de acesso na sessão
 import { useNavigate } from 'react-router-dom'
+import "../../assets/css/home.css";
+
 
 /*O componente de Login coleta as informações do form e as deposita em uma variavel que será usada como corpo da requisição para o endpoint de Login
 
@@ -42,12 +44,12 @@ Informações do usuário são salvas na sessão local e através de cookies*/
   };
 
   return (
-    <div>
-      <h2>Login</h2>
+    <div className='half'>
+      <h2>Login</h2><br />
       <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="email">Email:</label>
-          <input
+        <div className='mb-3'>
+          <label htmlFor="email" className='form-label'>Email:</label>
+          <input className='form-control'
             type="email"
             id="email"
             name="email"
@@ -56,9 +58,9 @@ Informações do usuário são salvas na sessão local e através de cookies*/
             required
           />
         </div>
-        <div>
-          <label htmlFor="password">Senha:</label>
-          <input
+        <div className='mb-3'>
+          <label className='form-label' htmlFor="password">Senha:</label>
+          <input className='form-control'
             type="password"
             id="password"
             name="password"
@@ -67,7 +69,7 @@ Informações do usuário são salvas na sessão local e através de cookies*/
             required
           />
         </div>
-        <button type="submit">Login</button>
+        <button className='btn btn-primary' type="submit">Login</button>
       </form>
     </div>
   );

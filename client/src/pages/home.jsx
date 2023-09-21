@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie'; //Será utilizado o react-cookies para averiguar o token de acesso na sessão
 import Login from '../components/auth/Login' //Componente que lida com o form e o endpoint de login
 import Register from '../components/auth/Register' //Componente que lida com o form e o endpoint de registro
+import "../assets/css/home.css";
+
 
 /*Página renderiza componentes de Login e Registro*/
 export const Home = () => {
@@ -18,7 +20,7 @@ export const Home = () => {
       }, [cookies.access_token, navigate]);
 
     return (
-        <div className="home">
+        <div className="home p-3">
             <Login/>
             <Register/>
         </div>

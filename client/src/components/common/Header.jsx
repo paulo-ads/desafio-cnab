@@ -17,7 +17,7 @@ function Header(){
 
     return(
         <div className="navbar">
-            {cookies.access_token ? (<p>Desafio CNAB<button onClick={logout}>Sair</button></p>) : <p>Desafio CNAB</p>}
+            {cookies.access_token ? (<div className='m-3 header'><p>Desafio CNAB<button className='btn btn-danger' onClick={logout}>Sair</button></p></div>) : <div className='m-3 header'><p>Desafio CNAB</p></div>}
         </div>
     )
 }

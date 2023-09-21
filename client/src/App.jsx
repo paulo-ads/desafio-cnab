@@ -1,7 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import app from "./app.css?inline";
 import Header from './components/common/Header'
 import { Home } from './pages/home'
 import { Main } from './pages/main'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 /*O aplicativo existe dentro das rotas Home (página inicial) e Main (página principal);
 A página inicial lidará com o Login e Registro;

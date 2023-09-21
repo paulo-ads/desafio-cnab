@@ -2,8 +2,11 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie'; //Será utilizado o react-cookies para averiguar o token de acesso na sessão
+import FileUpload from '../components/common/FileUpload'; //Componente que renderiza o carregador de arquivos, bem como sua lógica
+import OperationsTable from '../components/common/OperationsTable'; //Componente que renderiza a tabela com as operações salvas pelo usuário logado
+import ErrorTable from '../components/common/ErrorTable' //Componente que renderiza a tabela das operações carregadas pelo usuário logado que deram errado
 
-
+// Página renderiza os componentes das tabelas e do carregador de arquivos
 export const Main = () => {
     const navigate = useNavigate();
     const [cookies] = useCookies(['access_token']);
@@ -18,6 +21,9 @@ export const Main = () => {
     return (
         <div>
             <h1>Página Principal</h1>
+            <FileUpload />
+            <OperationsTable />
+            <ErrorTable />
         </div>
     )
 }
